@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #0a0a0b;
+  color: #fff;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(190, 242, 100, 0.3);
+}
+
+/* scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* custom range slider */
+input[type="range"].range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #bef264 var(--p, 50%), rgba(255, 255, 255, 0.18) var(--p, 50%));
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"].range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+}
+input[type="range"].range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+}
+
+/* settings sliders (lime accent) */
+input[type="range"].range-lime {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(to right, #bef264 var(--p, 50%), rgba(255, 255, 255, 0.12) var(--p, 50%));
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"].range-lime::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0a0a0b;
+  border: 2px solid #bef264;
+}
+input[type="range"].range-lime::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0a0a0b;
+  border: 2px solid #bef264;
+}
+
+/* equaliser bars in the library */
+.eq-bar {
+  height: 100%;
+  animation: eq 0.9s ease-in-out infinite;
+  transform-origin: bottom;
+}
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* gesture toast */
+.toast-pop {
+  animation: toast 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+@keyframes toast {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -8px) scale(0.96);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -4px);
+  }
+}
+
+/* subtle grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
