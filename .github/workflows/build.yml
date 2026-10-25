@@ -33,7 +33,7 @@ jobs:
 
       - run: npm ci
       - run: npm run typecheck
-      - run: npm run test:motion
+      - run: npm run test
 
       - run: npm run ${{ matrix.script }}
         env:
